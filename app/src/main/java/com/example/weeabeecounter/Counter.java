@@ -15,16 +15,26 @@ public class Counter extends AppCompatActivity {
         setContentView(R.layout.activity_counter);
         final TextView textView = (TextView) findViewById(R.id.number);
         Button button = findViewById(R.id.button);
-
+        Button reset = findViewById(R.id.reset);
+        final int[] counterValue = {0};
 
         button.setOnClickListener(new View.OnClickListener() {
-            int counterValue = 0;
+
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                counterValue++;
-                textView.setText(counterValue+"");
+                counterValue[0]++;
+                textView.setText(counterValue[0] +"");
             }
         });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                counterValue[0]=0;
+                textView.setText(counterValue[0]+"");
+            }
+        });
+
     }
 
 
